@@ -1,6 +1,13 @@
 // Contenu des projets. Remplacer les textes entre crochets.
-// Pour une image : mettre le chemin d'un fichier placé dans /public, ex. "/images/siw-cover.jpg".
+// Pour une image : la placer dans src/img, l'importer ci-dessous, puis utiliser la variable
+// (ex. cover: coverAbyssal).
 // liveUrl / codeUrl : mettre null pour masquer le bouton correspondant.
+
+import coverAbyssal from "../img/couverture-abyssal.png";
+import coverTyranny from "../img/couverture-tyranny.png";
+import coverSovereign from "../img/couverture-sovereign.png";
+import coverPhysio from "../img/couverture-physio.png";
+import coverChateau from "../img/couverture-chateau-labyrinthe.png";
 
 export const CATEGORIES = ["Développement", "Illustration", "Écriture"];
 
@@ -10,7 +17,7 @@ export const CATEGORIES = ["Développement", "Illustration", "Écriture"];
     slug: "",                 // adresse de la page : /projets/<slug> (minuscules, tirets, sans accents)
     title: "",                // nom affiché sur la carte et la page
     tags: [],                 // une ou plusieurs valeurs de CATEGORIES
-    cover: null,              // image de la carte, ex. "/images/mon-projet/cover.jpg"
+    cover: null,              // image de la carte (variable importée en haut du fichier)
     summary: "",              // 2–3 phrases sous le titre de la page
     heroImage: null,          // grande image en haut de la page (format 2:1)
     start: {
@@ -42,7 +49,7 @@ export const projects = [
     slug: "sovereign-in-war",
     title: "Sovereign In War",
     tags: ["Développement", "Illustration"],
-    cover: null,
+    cover: coverSovereign,
     summary: "Jeu de stratégie en pixel art - dark fantasy",
     heroImage: null,
     start: {
@@ -82,7 +89,7 @@ export const projects = [
     slug: "physio-lessons",
     title: "Physio Lessons",
     tags: ["Développement"],
-    cover: null,
+    cover: coverPhysio,
     summary: "[Résumé en 2–3 phrases : ce qu'est le projet, pourquoi il existe, ce que tu y as fait.]",
     heroImage: null,
     start: {
@@ -122,7 +129,7 @@ export const projects = [
     slug: "chateau-labyrinthe",
     title: "Château-Labyrinthe",
     tags: ["Écriture", "Illustration"],
-    cover: null,
+    cover: coverChateau,
     summary: "[Résumé en 2–3 phrases : ce qu'est le projet, pourquoi il existe, ce que tu y as fait.]",
     heroImage: null,
     start: {
@@ -162,7 +169,7 @@ export const projects = [
     slug: "abyssal-city",
     title: "Abyssal City",
     tags: ["Écriture", "Illustration"],
-    cover: null,
+    cover: coverAbyssal,
     summary: "[Résumé en 2–3 phrases : ce qu'est le projet, pourquoi il existe, ce que tu y as fait.]",
     heroImage: null,
     start: {
@@ -202,7 +209,7 @@ export const projects = [
     slug: "new-tyranny-of-dragons",
     title: "New Tyranny of Dragons",
     tags: ["Écriture", "Illustration"],
-    cover: null,
+    cover: coverTyranny,
     summary: "[Résumé en 2–3 phrases : ce qu'est le projet, pourquoi il existe, ce que tu y as fait.]",
     heroImage: null,
     start: {
