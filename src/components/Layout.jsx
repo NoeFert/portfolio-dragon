@@ -27,8 +27,7 @@ export function Header({ back = false }) {
       )}
       <nav className="nav">
         {!back && <Link to="/#tresor">Le trésor</Link>}
-        <NavLink to="/biographie" end>Biographie</NavLink>
-        <Link to="/biographie#contact">Contact</Link>
+        <NavLink to="/biographie" end>Le dragon</NavLink>
       </nav>
     </header>
   );

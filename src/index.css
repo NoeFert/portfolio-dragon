@@ -173,7 +173,26 @@ p { margin: 0; }
 
 /* --- Accueil : hero ----------------------------------------------------- */
 
-.hero { text-align: center; padding: 24px 0 40px; }
+/* Image de fond pleine largeur, fondue vers la page sur les 50 px du bas */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: clamp(420px, 72vh, 760px);
+  text-align: center;
+  padding: 40px 0 90px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("./img/dragon-background.jpeg") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 50px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 50px), transparent);
+}
 
 .hero h1 {
   font-size: clamp(28px, 6vw, 50px);
@@ -181,32 +200,6 @@ p { margin: 0; }
 }
 
 .hero .dot { color: var(--red-500); margin: 0 .35em; font-size: .6em; vertical-align: middle; }
-
-.dragon-slot {
-  aspect-ratio: 2 / 1;
-  max-width: 880px;
-  margin: 0 auto 24px;
-  display: grid;
-  place-items: center;
-  border: 1.5px dashed var(--gold);
-  border-radius: 10px;
-}
-
-.dragon-slot:has(img) { border: 0; }
-
-.dragon-slot img { width: 100%; height: 100%; object-fit: contain; }
-
-.dragon-slot strong {
-  display: block;
-  font: 400 22px var(--font-display);
-  margin-bottom: 8px;
-}
-
-.dragon-slot span {
-  display: block;
-  color: var(--muted);
-  font: 10px/1.6 var(--font-mono);
-}
 
 .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 
@@ -277,11 +270,9 @@ p { margin: 0; }
   border-radius: 2px;
 }
 
-.card h3 { font-size: 24px; margin: 4px 0 2px; }
+.card h3 { font-size: 24px; margin-top: 2px; transition: color .15s; }
 
-.card h3:hover { color: var(--accent); }
-
-.card p { font-size: 12px; line-height: 1.45; color: var(--ink-soft); }
+.card:hover h3 { color: var(--accent); }
 
 /* --- Pied de page ------------------------------------------------------- */
 

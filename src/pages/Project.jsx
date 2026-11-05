@@ -73,7 +73,7 @@ export default function Project() {
           ))}
         </section>
 
-        <section className="section">
+        {p.gallery.length > 0 && <section className="section">
           <div className="gallery-head">
             <h2 className="section-title">Les pièces du projet</h2>
             <span>{p.gallery.length} images · cliquer pour agrandir</span>
@@ -89,14 +89,18 @@ export default function Project() {
               </button>
             ))}
           </div>
-        </section>
+        </section>}
 
         <section className="section outcome">
           <h2>{p.outcome.title}</h2>
           <p className="body-text">{p.outcome.text}</p>
           <div className="hero-actions">
-            <a href={p.outcome.liveUrl} className="btn btn--dark">[Voir le projet en ligne]</a>
-            <a href={p.outcome.codeUrl} className="btn">[Code sur GitHub]</a>
+            {p.outcome.liveUrl && (
+              <a href={p.outcome.liveUrl} className="btn btn--dark">Voir le projet en ligne</a>
+            )}
+            {p.outcome.codeUrl && (
+              <a href={p.outcome.codeUrl} className="btn">Code sur GitHub</a>
+            )}
           </div>
         </section>
 

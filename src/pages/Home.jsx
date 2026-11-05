@@ -15,31 +15,21 @@ export default function Home() {
       <Header />
 
       <main>
-        <section className="container hero">
-          <h1>
-            {site.roles.map((role, i) => (
-              <Fragment key={role}>
-                {i > 0 && <span className="dot">•</span>}
-                {role}
-              </Fragment>
-            ))}
-          </h1>
+        <section className="hero">
+          <div className="container">
+            <h1>
+              {site.roles.map((role, i) => (
+                <Fragment key={role}>
+                  {i > 0 && <span className="dot">•</span>}
+                  {role}
+                </Fragment>
+              ))}
+            </h1>
 
-          <div className="dragon-slot">
-            {site.dragon ? (
-              <img src={site.dragon} alt="Dragon" />
-            ) : (
-              <div>
-                <strong>Emplacement du dragon</strong>
-                <span>Format 2:1 horizontal</span>
-                <span>PNG transparent · env. 2000 × 1000 px</span>
-              </div>
-            )}
-          </div>
-
-          <div className="hero-actions">
-            <Link to="/biographie#contact" className="btn btn--dark">Me contacter</Link>
-            <a href="#tresor" className="btn">Voir le trésor</a>
+            <div className="hero-actions">
+              <Link to="/biographie#contact" className="btn btn--dark">Me contacter</Link>
+              <a href="#tresor" className="btn">Voir le trésor</a>
+            </div>
           </div>
         </section>
 
@@ -56,9 +46,6 @@ export default function Home() {
                 {cat}
               </button>
             ))}
-            <span className="count">
-              {visible.length} {visible.length > 1 ? "projets" : "projet"}
-            </span>
           </div>
 
           <div className="grid">
@@ -66,11 +53,7 @@ export default function Home() {
               <Link key={p.slug} to={`/projets/${p.slug}`} className="card">
                 <div className="card-inner">
                   <Placeholder src={p.cover} label={`[Couverture — ${p.title}]`} />
-                  <div className="tags">
-                    {p.tags.map((t) => <span key={t} className="tag">{t}</span>)}
-                  </div>
                   <h3>{p.title}</h3>
-                  <p>{p.tagline}</p>
                 </div>
               </Link>
             ))}
